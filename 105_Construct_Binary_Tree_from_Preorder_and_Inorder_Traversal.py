@@ -24,7 +24,7 @@ def tree_to_list(root: TreeNode):
 class Solution:
 
     def build(self, preorder, pre_start, pre_end, inorder, in_start, in_end):
-        if pre_start > pre_end:
+        if pre_start > pre_end or in_start > in_end:
             return None
         inorder_root_index = inorder.index(preorder[pre_start])
         root = TreeNode(preorder[pre_start])
@@ -42,3 +42,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(tree_to_list(s.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])))
+    print(tree_to_list(s.buildTree([1, 2, 3], [3, 2, 1])))
