@@ -1,9 +1,5 @@
 # Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils import TreeNode, Codec
 
 
 class Solution:
@@ -35,7 +31,9 @@ def list_to_tree(nums, index):
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.isValidBST(list_to_tree([2, 1, 3], 0)))
-    print(s.isValidBST(list_to_tree([2, 2, 2], 0)))
-    print(s.isValidBST(list_to_tree([5, 1, 4, None, None, 3, 6], 0)))
-    print(s.isValidBST(list_to_tree([5, 4, 6, None, None, 3, 7], 0)))
+    codec = Codec()
+    print(s.isValidBST(codec.deserialize('2,1,3')))
+    print(s.isValidBST(codec.deserialize('2,2,2')))
+    print(s.isValidBST(codec.deserialize('5,1,4,None,None,3,6')))
+    print(s.isValidBST(codec.deserialize('5,4,6,None,None,3,7')))
+
