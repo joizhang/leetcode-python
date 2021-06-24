@@ -9,6 +9,27 @@ class TreeNode:
         self.right = right
 
 
+def list_to_tree(nums, index):
+    if index >= len(nums) or nums[index] is None:
+        return None
+    t = TreeNode(val=nums[index])
+    t.left = list_to_tree(nums, index * 2 + 1)
+    t.right = list_to_tree(nums, index * 2 + 2)
+    return t
+
+
+def tree_to_list(root: TreeNode):
+    nums = []
+    q = [root]
+    while len(q) != 0:
+        node = q.pop(0)
+        if node is not None:
+            q.append(node.left)
+            q.append(node.right)
+            nums.append(node.val)
+    return nums
+
+
 class Solution:
 
     def max_index(self, nums: List[int], start, end):
@@ -30,27 +51,6 @@ class Solution:
 
     def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
         return self.recursive(nums, 0, len(nums))
-
-
-def list_to_tree(nums, index):
-    if index >= len(nums) or nums[index] is None:
-        return None
-    t = TreeNode(val=nums[index])
-    t.left = list_to_tree(nums, index * 2 + 1)
-    t.right = list_to_tree(nums, index * 2 + 2)
-    return t
-
-
-def tree_to_list(root: TreeNode):
-    nums = []
-    q = [root]
-    while len(q) != 0:
-        node = q.pop(0)
-        if node is not None:
-            q.append(node.left)
-            q.append(node.right)
-            nums.append(node.val)
-    return nums
 
 
 if __name__ == '__main__':
