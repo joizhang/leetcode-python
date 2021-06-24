@@ -7,6 +7,12 @@ class TreeNode:
 
 
 class Solution:
+
+
+
+    def backtrace(self, root: TreeNode):
+        pass
+
     def recoverTree(self, root: TreeNode) -> None:
         """
         Do not return anything, modify root in-place instead.
