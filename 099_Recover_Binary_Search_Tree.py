@@ -8,8 +8,6 @@ class TreeNode:
 
 class Solution:
 
-
-
     def backtrace(self, root: TreeNode):
         pass
 
