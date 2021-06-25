@@ -1,3 +1,7 @@
+SEP = ','
+NONE = 'None'
+
+
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
@@ -6,8 +10,10 @@ class TreeNode(object):
         self.right = right
 
 
-SEP = ','
-NONE = 'None'
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Codec:
@@ -66,3 +72,23 @@ class Codec:
             else:
                 parent.right = None
         return root
+
+
+def list_to_linklist(nums):
+    if len(nums) == 0:
+        return None
+    head = ListNode(val=nums[0])
+    p = head
+    for i in range(1, len(nums)):
+        p.next = ListNode(val=nums[i])
+        p = p.next
+    return head
+
+
+def linklist_to_list(head):
+    nums = []
+    p = head
+    while p is not None:
+        nums.append(p.val)
+        p = p.next
+    return nums
