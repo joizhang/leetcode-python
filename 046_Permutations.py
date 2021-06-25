@@ -13,7 +13,7 @@ class Solution:
                 continue
             track.append(num)
             self.backtrace(nums, track, ans)
-            del track[-1]
+            track.pop()
 
     def permute(self, nums: List[int]) -> List[List[int]]:
         ans = []
@@ -24,4 +24,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(s.permute([1, 2, 3]))
-    print(s.permute([0,1]))
+    print(s.permute([0, 1]))

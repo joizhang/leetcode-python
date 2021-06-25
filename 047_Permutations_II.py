@@ -17,7 +17,7 @@ class Solution:
             visited[i] = 1
             track.append(num)
             self.backtrace(nums, track, visited, ans)
-            del track[-1]
+            track.pop()
             visited[i] = 0
 
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
