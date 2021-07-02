@@ -1,5 +1,6 @@
 SEP = ','
 NONE = 'None'
+NULL = 'null'
 
 
 # Definition for a binary tree node.
@@ -67,7 +68,7 @@ class Codec:
             # 父节点对应的左侧子节点的值
             left = nodes[i]
             i += 1
-            if left != NONE:
+            if left != NONE and left != NULL:
                 parent.left = TreeNode(int(left))
                 q.append(parent.left)
             else:
@@ -75,7 +76,7 @@ class Codec:
             # 父节点对应的右侧子节点的值
             right = nodes[i]
             i += 1
-            if right != NONE:
+            if right != NONE and right != NULL:
                 parent.right = TreeNode(int(right))
                 q.append(parent.right)
             else:
