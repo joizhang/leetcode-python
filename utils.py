@@ -19,13 +19,6 @@ class Node:
         self.random = random
 
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
 class Codec:
 
     def serialize(self, root):
@@ -82,6 +75,13 @@ class Codec:
             else:
                 parent.right = None
         return root
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 def list_to_linklist(nums):
