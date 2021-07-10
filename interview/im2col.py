@@ -73,19 +73,21 @@ def conv2d(x, weights, bias, stride=1, padding=0):
 
     x_col = im2col(x, weights, padding, stride)
     weights_col = weights.transpose(3, 2, 0, 1).reshape(out_ch, -1)
-    z = (weights_col @ x_col).reshape(out_ch, h_out, w_out, n).transpose(3, 0, 1, 2)
+    z = weights_col @ x_col
+    z = z.reshape(out_ch, h_out, w_out, n).transpose(3, 0, 1, 2)
     z += bias
     return z
 
 
 def main():
     batch_size = 5
-    w, h, in_channels, out_channels = 5, 5, 1, 1
-    kernel_size, stride, padding = 3, 2, 1
+    w, h, in_channels, out_channels = 5, 5, 1, 2
+    kernel_size, stride, padding = 3, 1, 1
     x = np.arange(1, w * h + 1).reshape((1, 1, w, h))
+    x = np.repeat(x, repeats=in_channels, axis=1)
     x = np.repeat(x, repeats=batch_size, axis=0)
     w = np.ones((kernel_size, kernel_size, in_channels, out_channels))
-    b = np.zeros((1, out_channels))
+    b = np.zeros((batch_size, out_channels, 1, 1))
     x = conv2d(x, w, b, stride, padding)
     print(x[0, 0])
 
