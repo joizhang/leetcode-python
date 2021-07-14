@@ -8,6 +8,7 @@ class Solution:
             # text1[i] 和 text2[j] 必然在 lcs 中，加上 text1[i+1..] 和 text2[j+1..] 中的 lcs 长度，就是答案
             return 1 + self.dp(text1, text2, i + 1, j + 1)
         else:
+            # text1[i] 和 text2[j] 至少有一个不在 lcs 中
             return max(self.dp(text1, text2, i + 1, j), self.dp(text1, text2, i, j + 1))
 
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
