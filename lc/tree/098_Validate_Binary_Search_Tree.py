@@ -15,7 +15,7 @@ class Solution:
         res = []
         self.validBST(root, res)
         for i in range(1, len(res)):
-            if res[i] <= res[i-1]:
+            if res[i] <= res[i - 1]:
                 return False
         return True
 
@@ -36,4 +36,3 @@ if __name__ == '__main__':
     print(s.isValidBST(codec.deserialize('2,2,2')))
     print(s.isValidBST(codec.deserialize('5,1,4,None,None,3,6')))
     print(s.isValidBST(codec.deserialize('5,4,6,None,None,3,7')))
-
