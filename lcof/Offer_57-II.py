@@ -4,19 +4,17 @@ from typing import List
 class Solution:
     def findContinuousSequence(self, target: int) -> List[List[int]]:
         ans = []
-        lo, hi, n = 1, 1, target // 2
-        s = 1
-        while lo <= n:
-            if s < target:
-                hi += 1
-                s += hi
-            elif s > target:
-                s -= lo
-                lo += 1
+        i, j,  = 1, 2
+        s = i + j
+        while i < j:
+            if s == target:
+                ans.append(list(range(i, j + 1)))
+            if s >= target:
+                s -= i
+                i += 1
             else:
-                ans.append([x for x in range(lo, hi + 1)])
-                s -= lo
-                lo += 1
+                j += 1
+                s += j
         return ans
 
 
