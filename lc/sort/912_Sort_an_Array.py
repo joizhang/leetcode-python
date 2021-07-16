@@ -69,6 +69,12 @@ class Solution:
         self.merge(nums, left, mid, right, tmp)
 
     def partition(self, nums, left, right):
+        """
+        lt 是 less than 的缩写，表示（严格）小于；
+        gt 是 greater than 的缩写，表示（严格）大于；
+        le 是 less than or equal 的缩写，表示小于等于（本代码没有用到）；
+        ge 是 greater than or equal 的缩写，表示大于等于（本代码没有用到）。
+        """
         random_idx = random.randint(left, right)
         nums[left], nums[random_idx] = nums[random_idx], nums[left]
         pivot = nums[left]
