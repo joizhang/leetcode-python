@@ -18,6 +18,7 @@ class LRUCache:
 
     def move_node_to_tail(self, key):
         node = self.hashmap[key]
+        # 将结点从链表中分离
         node.prev.next = node.next
         node.next.prev = node.prev
         # 将node插入到尾节点前
@@ -40,12 +41,14 @@ class LRUCache:
             self.hashmap[key].value = value
             self.move_node_to_tail(key)
         else:
+            # 缓存满，移除开头结点
             if len(self.hashmap) == self.capacity:
                 self.hashmap.pop(self.head.next.key)
                 self.head.next = self.head.next.next
                 self.head.next.prev = self.head
             new = ListNode(key, value)
             self.hashmap[key] = new
+            # 插入到链表开头
             new.prev = self.tail.prev
             new.next = self.tail
             self.tail.prev.next = new
