@@ -10,6 +10,7 @@ class Solution:
         pre = helper
         cur = head
         while cur:
+            # 暂存下一个结点
             next = cur.next
             # 在新链表中找到插入的位置
             while pre.next and cur.val > pre.next.val:
