@@ -108,6 +108,7 @@ class Solution:
     def sift_down(self, nums, k, end):
         while 2 * k + 1 <= end:
             j = 2 * k + 1
+            # 比较左右孩子节点的大小
             if j + 1 <= end and nums[j + 1] > nums[j]:
                 j += 1
             if nums[j] > nums[k]:
@@ -132,11 +133,16 @@ class Solution:
         if len(nums) < 2:
             return nums
         # self.bubble_sort(nums)
+
         # self.insertion_sort(nums)
+
         # self.selection_sort(nums)
+
         # tmp = [0] * len(nums)
         # self.merge_sort(nums, 0, len(nums) - 1, tmp)
+
         self.quick_sort(nums, 0, len(nums) - 1)
+
         # self.heap_sort(nums)
         return nums
 
