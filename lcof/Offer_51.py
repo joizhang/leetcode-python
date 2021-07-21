@@ -34,6 +34,43 @@ class Solution:
         return self.merge_sort(nums, tmp, 0, len(nums) - 1)
 
 
+class Solution2:
+
+    def merge(self, nums, lo, mid, hi, tmp):
+        ans = 0
+        tmp[lo:hi + 1] = nums[lo:hi + 1]
+        i, j = lo, mid + 1
+        for k in range(lo, hi + 1):
+            if i == mid + 1:
+                nums[k] = tmp[j]
+                j += 1
+            elif j == hi + 1:
+                nums[k] = tmp[i]
+                i += 1
+            elif tmp[i] <= tmp[j]:
+                nums[k] = tmp[i]
+                i += 1
+            else:
+                nums[k] = tmp[j]
+                j += 1
+                # 表示 nums[i, mid] 均大于 nums[j]
+                ans += (mid - i + 1)
+        return ans
+
+    def merge_sort(self, nums, lo, hi, tmp):
+        if lo >= hi:
+            return 0
+        mid = lo + (hi - lo) // 2
+        res = self.merge_sort(nums, lo, mid, tmp) + self.merge_sort(nums, mid + 1, hi, tmp)
+        res += self.merge(nums, lo, mid, hi, tmp)
+        return res
+
+    def reversePairs(self, nums: List[int]) -> int:
+        tmp = [0] * len(nums)
+        return self.merge_sort(nums, 0, len(nums) - 1, tmp)
+
+
 if __name__ == '__main__':
-    s = Solution()
+    s = Solution2()
+    print(s.reversePairs([7, 5, 6, 4]))
     print(s.reversePairs([7, 3, 2, 6, 0, 1, 5, 4]))
