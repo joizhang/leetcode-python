@@ -11,7 +11,7 @@ def get_IoU(pred_bbox, gt_bbox):
     :param gt_bbox:
     :return:
     """
-    # -----0---- get coordinates of inters
+    # -----0---- get coordinates of inters 难点
     ixmin = max(pred_bbox[0], gt_bbox[0])
     iymin = max(pred_bbox[1], gt_bbox[1])
     ixmax = min(pred_bbox[2], gt_bbox[2])
