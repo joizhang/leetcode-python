@@ -29,8 +29,35 @@ class MaxQueue:
         return ans
 
 
+class MaxQueue2:
+
+    def __init__(self):
+        self.A, self.B = [], []
+
+    def max_value(self) -> int:
+        if not self.B:
+            return -1
+        return self.B[0]
+
+    def push_back(self, value: int) -> None:
+        self.A.append(value)
+        while self.B and self.B[-1] < value:
+            self.B.pop()
+        self.B.append(value)
+
+    def pop_front(self) -> int:
+        if not self.A:
+            return -1
+        ans = self.A.pop(0)
+        if self.B[0] == ans:
+            self.B.pop(0)
+        return ans
+
+
 if __name__ == '__main__':
-    obj = MaxQueue()
-    param_1 = obj.max_value()
+    obj = MaxQueue2()
     obj.push_back(1)
-    param_3 = obj.pop_front()
+    obj.push_back(2)
+    print(obj.max_value())
+    print(obj.pop_front())
+    print(obj.max_value())
