@@ -9,9 +9,10 @@ class Solution:
             for j in range(1, W + 1):
                 if i - wt[i - 1] < 0:
                     # 这种情况下只能选择不装入背包
-                    dp[i][j] = dp[i - 1][w]
+                    dp[i][j] = dp[i - 1][j]
                 else:
-                    dp[i][w] =
+                    dp[i][j] = max(dp[i - 1][j - wt[i - 1]] + val[i - 1], dp[i - 1][j])
+        return dp[N][W]
 
 
 if __name__ == '__main__':
