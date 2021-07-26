@@ -26,11 +26,11 @@ class Solution:
                 i += 1
             if not end:
                 break
-
+            # 截取中间链
             start = pre.next
             end_next = end.next
-
             end.next = None
+            # 翻转
             pre.next = self.reverse(start)
             start.next = end_next
 
