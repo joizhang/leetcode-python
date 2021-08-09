@@ -61,6 +61,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+    print(s.findKthLargest([1, 2, 3, 4, 5, 6], 2))
     print(s.findKthLargest([3, 2, 1, 5, 6, 4], 2))
     print(s.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
 
