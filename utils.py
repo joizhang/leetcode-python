@@ -83,6 +83,9 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        return str(self.val)
+
 
 def list_to_linklist(nums):
     if len(nums) == 0:
