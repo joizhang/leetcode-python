@@ -2,18 +2,17 @@ from typing import List
 
 
 class Solution:
+
     def findMin(self, nums: List[int]) -> int:
         lo, hi = 0, len(nums) - 1
         while lo < hi:
             mid = lo + (hi - lo) // 2
-            while lo < mid:
-                if nums[lo] != nums[hi]:
-                    break
-                lo += 1
-            if nums[mid] >= nums[lo] >= nums[hi]:
+            if nums[mid] > nums[hi]:
                 lo = mid + 1
-            else:
+            elif nums[mid] < nums[hi]:
                 hi = mid
+            else:
+                hi -= 1
         return nums[lo]
 
 

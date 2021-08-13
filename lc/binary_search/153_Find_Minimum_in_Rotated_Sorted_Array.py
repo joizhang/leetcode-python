@@ -4,14 +4,15 @@ from typing import List
 class Solution:
 
     def findMin(self, nums: List[int]) -> int:
-        """若 nums[left] <= nums[mid]，说明区间[left, mid]连续递增，则最小元素一定不在这个区间里，可以直接排除。"""
         lo, hi = 0, len(nums) - 1
         while lo < hi:
             mid = lo + (hi - lo) // 2
-            if nums[mid] >= nums[lo] >= nums[hi]:
+            if nums[mid] > nums[hi]:
                 lo = mid + 1
-            else:
+            elif nums[mid] < nums[hi]:
                 hi = mid
+            else:
+                hi -= 1
         return nums[lo]
 
 
