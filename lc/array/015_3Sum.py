@@ -4,13 +4,14 @@ from typing import List
 class Solution:
     def n_sum(self, nums, target, n, index):
         ans = []
-        if index > len(nums):
+        if index > len(nums) - n:
             return ans
         if n == 2:
             i, j = index, len(nums) - 1
             while i < j:
                 if nums[i] + nums[j] == target:
                     ans.append([nums[i], nums[j]])
+                    # 出错处
                     while i < j and nums[i] == nums[i + 1]:
                         i += 1
                     while i < j and nums[j] == nums[j - 1]:
@@ -30,6 +31,7 @@ class Solution:
                         b = [nums[i]]
                         b.extend(a)
                         ans.append(b)
+                # 出错处
                 while i < len(nums) - 1 and nums[i] == nums[i + 1]:
                     i += 1
                 i += 1
