@@ -25,5 +25,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(s.rob([1, 2, 3, 1]))
-
     print(s.rob2([1, 2, 3, 1]))
