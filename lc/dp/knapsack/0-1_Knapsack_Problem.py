@@ -2,15 +2,15 @@ from typing import List
 
 
 class Solution:
+    """
+    0-1背包问题
+    :param N: 物品数为 N
+    :param W: 重量为 W
+    :param weight: 第 i 个物品的重量为 wt[i]
+    :param val: 第 i 个物品的价值为 val[i]
+    :return:
+    """
     def knapsack(self, N: int, W: int, weight: List[int], val: List[int]) -> int:
-        """
-        0-1背包问题
-        :param N: 物品数为 N
-        :param W: 重量为 W
-        :param weight: 第 i 个物品的重量为 wt[i]
-        :param val: 第 i 个物品的价值为 val[i]
-        :return:
-        """
         # 定义状态转移数组dp[i][j]，表示前i个物品，背包重量为j的情况下能装的最大价值。
         dp = [[0] * (W + 1) for _ in range(N + 1)]
         for i in range(1, N + 1):
