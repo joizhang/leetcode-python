@@ -2,14 +2,11 @@ from typing import List
 
 
 class Solution:
-
+    """
+    在原来的 nums 的基础上构造一个临时的数组 all，这个数组，以元素的值来做下标，
+    下标对应的元素是原来的元素的个数。这样就可以变成打家劫舍的问题
+    """
     def deleteAndEarn(self, nums: List[int]) -> int:
-        """
-        在原来的 nums 的基础上构造一个临时的数组 all，这个数组，以元素的值来做下标，
-        下标对应的元素是原来的元素的个数。这样就可以变成打家劫舍的问题
-        :param nums:
-        :return:
-        """
         max_val = max(nums)
         tmp = [0] * (max_val + 1)
         for num in nums:
