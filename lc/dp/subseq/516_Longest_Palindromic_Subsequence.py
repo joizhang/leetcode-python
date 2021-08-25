@@ -14,17 +14,31 @@ class Solution:
         return self.dp(s, 0, len(s) - 1)
 
     def longestPalindromeSubseq2(self, s: str) -> int:
+        """
+        this problems can be reduced to finding the LCS
+        between the original string and its reversed form
+        """
+
+        # s2 = s[::-1]
+        # n = len(s)
+        # dp = [[0] * (n + 1) for _ in range(n + 1)]
+        # for i in range(1, n + 1):
+        #     for j in range(1, n + 1):
+        #         if s[i - 1] == s2[j - 1]:
+        #             dp[i][j] = dp[i - 1][j - 1] + 1
+        #         else:
+        #             dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+        # return dp[-1][-1]
+
         n = len(s)
-        dp = [[0] * n for _ in range(n)]
-        for i in range(n):
-            dp[i][i] = 1
-        for i in reversed(range(n)):
-            for j in range(i + 1, n):
-                if s[i] == s[j]:
-                    dp[i][j] = 2 + dp[i + 1][j - 1]
+        dp = [[0] * (n + 2) for _ in range(n + 2)]
+        for i in range(1, n + 1):
+            for j in reversed(range(1, n + 1)):
+                if s[i - 1] == s[j - 1]:
+                    dp[i][j] = dp[i - 1][j + 1] + 1
                 else:
-                    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
-        return dp[0][n - 1]
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j + 1])
+        return dp[n][1]
 
 
 if __name__ == '__main__':
@@ -34,3 +48,4 @@ if __name__ == '__main__':
 
     print(s.longestPalindromeSubseq2("bbbab"))
     print(s.longestPalindromeSubseq2("cbbd"))
+    print(s.longestPalindromeSubseq2("abc1234321ab"))
