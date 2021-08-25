@@ -2,10 +2,10 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/149383/Easy-DP-solution-using-state-machine-O(n)-time-complexity-O(1)-space-complexity
+    """
     def maxProfit(self, prices: List[int]) -> int:
-        """
-        https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/149383/Easy-DP-solution-using-state-machine-O(n)-time-complexity-O(1)-space-complexity
-        """
         # We begin at state 0, where we can either rest (i.e. do nothing) or buy stock at a given price.
         s1 = -prices[0]
         # From state 1, we can once again choose to do nothing or we can sell our stock.
