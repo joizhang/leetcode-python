@@ -2,19 +2,15 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/java-dp-kan-bu-dong-wei-shi-yao-sum-min-x7q53/
+    1 不使用环的情况时，直接通过53题的思路，逐步求出整个数组中的最大子序和即可
+    2 使用到了环，则必定包含 A[n-1]和 A[0]两个元素且说明从A[1]到A[n-2]这个子数组中必定包含负数
+    因此只需要把A[1]-A[n-2]间这些负数的最小和求出来
+    用整个数组的和 sum减掉这个负数最小和即可实现原环型数组的最大和
+    最后再比较直接通过53题思路求出无环子序列和用sum-min的有环子序列比较大小求出整个数组的最大值即可！
+    """
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        """
-        1 不使用环的情况时，直接通过53题的思路，逐步求出整个数组中的最大子序和即可
-        2 使用到了环，则必定包含 A[n-1]和 A[0]两个元素且说明从A[1]到A[n-2]这个子数组中必定包含负数
-        因此只需要把A[1]-A[n-2]间这些负数的最小和求出来
-        用整个数组的和 sum减掉这个负数最小和即可实现原环型数组的最大和
-        最后再比较直接通过53题思路求出无环子序列和用sum-min的有环子序列比较大小求出整个数组的最大值即可！
-
-        作者：lizhihua2034
-        链接：https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/java-dp-kan-bu-dong-wei-shi-yao-sum-min-x7q53/
-        来源：力扣（LeetCode）
-        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-        """
         dp = nums[0]
         max_val = dp
         sum_val = dp
