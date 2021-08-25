@@ -2,10 +2,10 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
+    """
     def maxProfit(self, prices: List[int]) -> int:
-        """
-        https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
-        """
         if len(prices) < 2:
             return 0
         n = len(prices)
