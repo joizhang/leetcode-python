@@ -1,4 +1,7 @@
 class Solution:
+    """
+    https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-xiang-jie-by-shellbye/
+    """
     def dp(self, k, n):
         if n == 0 or n == 1 or k == 1:
             return n
@@ -52,7 +55,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-xiang-jie-by-shellbye/
     s = Solution()
     print(s.superEggDrop(2, 10))
     print(s.superEggDrop2(2, 100))
