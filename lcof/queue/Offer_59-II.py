@@ -7,7 +7,7 @@ class MaxQueue:
     # 当5出栈后，4并没有在最大栈中
     def __init__(self):
         self.queue = queue.Queue()  # 队列
-        self.deque = collections.deque()  # 双向队列
+        self.deque = collections.deque()  # 双向队列，递减列表
 
     def max_value(self) -> int:
         if not self.deque:
