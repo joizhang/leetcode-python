@@ -6,7 +6,6 @@ class Solution:
     子序列（subsequence）：子序列并不要求连续，例如：序列 [4, 6, 5] 是 [1, 2, 4, 3, 7, 6, 5] 的一个子序列；
     子串（substring、subarray）：子串一定是原始字符串的连续子串。
     """
-
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
         dp = [1] * n
