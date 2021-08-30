@@ -8,7 +8,7 @@ class MyStack:
 
     def push(self, x: int) -> None:
         """
-        Push element x onto stack.
+        Push element x onto queue_stack.
         """
         self.B.append(x)
         while self.A:
@@ -17,7 +17,7 @@ class MyStack:
 
     def pop(self) -> int:
         """
-        Removes the element on top of the stack and returns that element.
+        Removes the element on top of the queue_stack and returns that element.
         """
         return self.A.pop(0)
 
@@ -29,7 +29,7 @@ class MyStack:
 
     def empty(self) -> bool:
         """
-        Returns whether the stack is empty.
+        Returns whether the queue_stack is empty.
         """
         return not self.A
 
