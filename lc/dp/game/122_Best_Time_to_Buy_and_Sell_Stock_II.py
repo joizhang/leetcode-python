@@ -11,6 +11,7 @@ class Solution:
                 dp[i] = prices[i] - prices[i - 1] + dp[i - 1]
             else:
                 dp[i] = dp[i - 1]
+            # print(dp)
         return dp[-1]
 
 
