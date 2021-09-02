@@ -16,6 +16,7 @@ class Solution:
         for i in range(1, n):
             min_price = min(min_price, prices[i])
             dp[i] = max(dp[i - 1], prices[i] - min_price)
+            # print(dp)
         return dp[-1]
 
 
