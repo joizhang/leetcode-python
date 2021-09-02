@@ -4,7 +4,7 @@ from typing import List
 class Solution:
     def n_sum(self, nums, target, n, index):
         ans = []
-        if index > len(nums) - n:
+        if index == len(nums):
             return ans
         if n == 2:
             i, j = index, len(nums) - 1
