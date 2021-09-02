@@ -8,6 +8,7 @@ class Solution:
         intervals.sort(key=lambda x: x[0])
         ans = []
         new_interval = intervals[0]
+        # 先加进去结果集，再修改
         ans.append(new_interval)
         for interval in intervals:
             if interval[0] <= new_interval[1]:
