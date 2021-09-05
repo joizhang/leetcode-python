@@ -8,9 +8,11 @@ class Solution:
             while j * j <= i:
                 dp[i] = min(dp[i], dp[i - j * j] + 1)
                 j += 1
+        # print(dp)
         return dp[n]
 
 
 if __name__ == '__main__':
     s = Solution()
     print(s.numSquares(4))
+    print(s.numSquares(5))
