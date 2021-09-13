@@ -8,7 +8,8 @@ class Solution:
             stack.append(digit)
         if k > 0:
             stack = stack[:-k]
-        return ''.join(stack).lstrip("0") or '0'
+        ans = ''.join(stack).lstrip('0')
+        return ans if ans else '0'
 
 
 if __name__ == '__main__':
@@ -16,3 +17,4 @@ if __name__ == '__main__':
     print(s.removeKdigits("1432219", 3))
     print(s.removeKdigits("10200", 1))
     print(s.removeKdigits("10", 2))
+    print(s.removeKdigits("10", 1))
