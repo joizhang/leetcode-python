@@ -1,8 +1,10 @@
+import heapq
 import random
 from typing import List
 
 
 class Solution:
+
     def partition(self, nums, lo, hi):
         """返回 j 使得 a[lo...j-1] > a[j] > a[j+1...hi]"""
         v = nums[lo]
@@ -21,6 +23,9 @@ class Solution:
         return j
 
     def findKthLargest(self, nums: List[int], k: int) -> int:
+        """
+        quick selection
+        """
         lo, hi = 0, len(nums) - 1
         p = -1
         while lo <= hi and p + 1 != k:
@@ -61,6 +66,17 @@ class Solution:
         self.quick_sort(nums, 0, len(nums) - 1)
         return nums[-k]
 
+    def findKthLargest3(self, nums: List[int], k: int) -> int:
+        """
+        min-heap
+        """
+        heap = []
+        for num in nums:
+            heapq.heappush(heap, num)
+        for _ in range(len(nums) - k):
+            heapq.heappop(heap)
+        return heapq.heappop(heap)
+
 
 if __name__ == '__main__':
     s = Solution()
@@ -68,5 +84,10 @@ if __name__ == '__main__':
     print(s.findKthLargest([3, 2, 1, 5, 6, 4], 2))
     print(s.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
 
+    print(s.findKthLargest2([1, 2, 3, 4, 5, 6], 2))
     print(s.findKthLargest2([3, 2, 1, 5, 6, 4], 2))
     print(s.findKthLargest2([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
+
+    print(s.findKthLargest3([1, 2, 3, 4, 5, 6], 2))
+    print(s.findKthLargest3([3, 2, 1, 5, 6, 4], 2))
+    print(s.findKthLargest3([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
