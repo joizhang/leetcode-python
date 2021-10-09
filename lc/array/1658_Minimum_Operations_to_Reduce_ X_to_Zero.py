@@ -6,9 +6,9 @@ class Solution:
         target = -x
         for num in nums:
             target += num
-
         if target == 0:
             return len(nums)
+
         dd, summary, res = {0: -1}, 0, float('-inf')
         for i in range(len(nums)):
             summary += nums[i]
