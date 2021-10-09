@@ -6,8 +6,8 @@ class Solution:
         if not head:
             return head
         # 创建一个新链表
-        helper = ListNode(0)
-        pre = helper
+        dummy = ListNode(0)
+        pre = dummy
         cur = head
         while cur:
             # 暂存下一个结点
@@ -17,9 +17,9 @@ class Solution:
                 pre = pre.next
             cur.next = pre.next
             pre.next = cur
-            pre = helper
+            pre = dummy
             cur = next
-        return helper.next
+        return dummy.next
 
 
 if __name__ == '__main__':
