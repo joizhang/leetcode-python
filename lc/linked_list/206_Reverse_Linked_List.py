@@ -24,7 +24,7 @@ class Solution:
         if head is None or head.next is None:
             return head
         # 这里的cur就是最后一个节点
-        cur = self.reverseList(head.next)
+        cur = self.reverseList2(head.next)
         # 这里请配合动画演示理解
         # 如果链表是 1->2->3->4->5，那么此时的cur就是5
         # 而head是4，head的下一个是5，下下一个是空

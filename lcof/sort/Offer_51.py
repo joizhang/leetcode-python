@@ -36,7 +36,7 @@ class Solution:
 
 class Solution2:
 
-    def merge(self, nums, lo, mid, hi, tmp):
+    def merge(self, nums, tmp, lo, mid, hi):
         ans = 0
         tmp[lo:hi + 1] = nums[lo:hi + 1]
         i, j = lo, mid + 1
@@ -57,17 +57,17 @@ class Solution2:
                 ans += (mid - i + 1)
         return ans
 
-    def merge_sort(self, nums, lo, hi, tmp):
+    def merge_sort(self, nums, tmp, lo, hi):
         if lo >= hi:
             return 0
         mid = lo + (hi - lo) // 2
-        res = self.merge_sort(nums, lo, mid, tmp) + self.merge_sort(nums, mid + 1, hi, tmp)
-        res += self.merge(nums, lo, mid, hi, tmp)
+        res = self.merge_sort(nums, tmp, lo, mid) + self.merge_sort(nums, tmp, mid + 1, hi)
+        res += self.merge(nums, tmp, lo, mid, hi)
         return res
 
     def reversePairs(self, nums: List[int]) -> int:
         tmp = [0] * len(nums)
-        return self.merge_sort(nums, 0, len(nums) - 1, tmp)
+        return self.merge_sort(nums, tmp, 0, len(nums) - 1)
 
 
 if __name__ == '__main__':

@@ -11,3 +11,8 @@ class Solution:
             return (3 ** (a - 1)) * 4 % 1000000007
         else:
             return (3 ** a) * 2 % 1000000007
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.cuttingRope(120))
