@@ -1,4 +1,4 @@
-from utils import ListNode, list_to_linklist, linklist_to_list
+from utils import ListNode
 
 
 class Solution:
@@ -17,6 +17,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    l = list_to_linklist([4, 5, 1, 9])
+    l = ListNode()
+    l.from_list([4, 5, 1, 9])
     l = s.deleteNode(l, 1)
-    print(linklist_to_list(l))
+    print(l.to_list())
