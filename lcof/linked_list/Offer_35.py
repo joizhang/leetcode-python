@@ -12,7 +12,7 @@ from utils import Node
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
         if not head:
-            return None
+            return head
         dd = {}
         cur = head
         while cur:
