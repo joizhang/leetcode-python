@@ -1,4 +1,9 @@
 class Solution:
+    """
+    剑指 Offer 14- II. 剪绳子 II
+    """
+
+    # 由于语言特性，Python 可以不考虑大数越界问题
     def cuttingRope(self, n: int) -> int:
         # 推论一： 将绳子以相等的长度等分为多段，得到的乘积最大。
         # 推论二： 尽可能将绳子以长度3等分为多段时，乘积最大。
