@@ -13,6 +13,7 @@ class Solution:
 
     # 排序
     def findRepeatNumber2(self, nums: List[int]) -> int:
+        assert len(nums) >= 2
         nums.sort()
         for i in range(1, len(nums)):
             if nums[i] == nums[i - 1]:
@@ -26,12 +27,11 @@ class Solution:
             num = nums[i]
             if num == i:
                 i += 1
-                continue
-            if num == nums[num]:
-                return num
-            nums[i], nums[num] = nums[num], nums[i]
-            # 出错点：不能 +1
-            # i += 1
+            else:
+                if num == nums[num]:
+                    return num
+                else:
+                    nums[i], nums[num] = nums[num], nums[i]
         return -1
 
 
