@@ -2,6 +2,7 @@ class Solution:
     """
     剑指 Offer 58 - II. 左旋转字符串
     """
+
     def reverse(self, s, start, end):
         while start < end:
             tmp = s[start]
