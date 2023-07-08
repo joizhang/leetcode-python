@@ -1,4 +1,8 @@
 class Solution:
+    """
+    剑指 Offer 14- I. 剪绳子
+    """
+
     def cuttingRope(self, n: int) -> int:
         if n <= 3:
             return n - 1
