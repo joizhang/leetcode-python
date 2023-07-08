@@ -2,17 +2,25 @@ from typing import List
 
 
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        votes, x, count = 0, nums[0], 0
-        for num in nums:
-            if votes == 0:
-                x = num
-            if num == x:
-                votes += 1
-            else:
-                votes -= 1
+    """
+    剑指 Offer 39. 数组中出现次数超过一半的数字
+    """
 
-        for num in nums:
-            if num == x:
+    # 摩尔投票法：核心理念为票数正负抵消
+    def majorityElement(self, nums: List[int]) -> int:
+        count, res = 1, nums[0]
+        for i in range(1, len(nums)):
+            if nums[i] == res:
                 count += 1
-        return x if count >= len(nums) // 2 else 0
+            else:
+                count -= 1
+
+            if count == 0:
+                res = nums[i]
+                count = 1
+        return res
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.majorityElement([1, 2, 3, 2, 2, 2, 5, 4, 2]))
