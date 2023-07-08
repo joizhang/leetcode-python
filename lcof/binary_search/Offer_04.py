@@ -2,6 +2,9 @@ from typing import List
 
 
 class Solution:
+    """
+    剑指 Offer 04. 二维数组中的查找
+    """
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
         if not matrix:
             return False
