@@ -33,7 +33,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s = Solution2()
+    s = Solution()
     matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     print(s.spiralOrder(matrix))
 
