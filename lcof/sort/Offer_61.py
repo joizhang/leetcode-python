@@ -2,6 +2,8 @@ from typing import List
 
 
 class Solution:
+    """剑指 Offer 61. 扑克牌中的顺子"""
+
     def isStraight(self, nums: List[int]) -> bool:
         nums.sort()
         joker = 0
