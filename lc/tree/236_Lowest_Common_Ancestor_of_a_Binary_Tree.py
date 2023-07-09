@@ -7,6 +7,8 @@ class Solution:
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
+        if not left and not right:
+            return None
         if not left:
             return right
         if not right:

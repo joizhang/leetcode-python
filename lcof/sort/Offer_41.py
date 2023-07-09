@@ -3,6 +3,7 @@ from heapq import *
 
 class MedianFinder:
     """
+    剑指 Offer 41. 数据流中的中位数
     https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/solution/mian-shi-ti-41-shu-ju-liu-zhong-de-zhong-wei-shu-y/
     """
 
