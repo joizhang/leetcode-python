@@ -1,3 +1,5 @@
+import typing
+
 SEP = ','
 NONE = 'None'
 NULL = 'null'
@@ -86,22 +88,19 @@ class ListNode:
     def __str__(self):
         return str(self.val)
 
+    def from_list(self, nums: typing.List):
+        if len(nums) == 0:
+            return
+        self.val = nums[0]
+        p = self
+        for i in range(1, len(nums)):
+            p.next = ListNode(val=nums[i])
+            p = p.next
 
-def list_to_linklist(nums):
-    if len(nums) == 0:
-        return None
-    head = ListNode(val=nums[0])
-    p = head
-    for i in range(1, len(nums)):
-        p.next = ListNode(val=nums[i])
-        p = p.next
-    return head
-
-
-def linklist_to_list(head):
-    nums = []
-    p = head
-    while p is not None:
-        nums.append(p.val)
-        p = p.next
-    return nums
+    def to_list(self) -> typing.List:
+        nums = []
+        p = self
+        while p:
+            nums.append(p.val)
+            p = p.next
+        return nums
