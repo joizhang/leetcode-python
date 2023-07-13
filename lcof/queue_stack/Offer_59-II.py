@@ -3,8 +3,8 @@ import queue
 
 
 class MaxQueue:
-    # 错误记录：我使用的是最大栈，当value大于max_stack[-1]才入栈，这个想法是错误的，比如push[1,4,5]，
-    # 当5出栈后，4并没有在最大栈中
+    # 错误记录：我使用的是最大栈，当value大于max_stack[-1]才入栈，
+    # 这个想法是错误的，比如push[1,4,5]，当5出栈后，4并没有在最大栈中
     def __init__(self):
         self.queue = queue.Queue()  # 队列
         self.deque = collections.deque()  # 双向队列，递减列表
@@ -32,7 +32,9 @@ class MaxQueue:
 class MaxQueue2:
 
     def __init__(self):
-        self.A, self.B = [], []
+        self.A = []
+        # 单调双向队列
+        self.B = []
 
     def max_value(self) -> int:
         if not self.B:
