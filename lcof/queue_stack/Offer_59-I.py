@@ -7,7 +7,9 @@ class Solution:
         ans = []
         if not nums or len(nums) < k:
             return ans
+        # 单调队列，元素从大到小存放
         deque = collections.deque()
+        # 未形成窗口区间
         for i in range(k):
             if not deque or nums[i] <= deque[-1]:
                 deque.append(nums[i])
@@ -16,7 +18,7 @@ class Solution:
                     deque.pop()
                 deque.append(nums[i])
         ans.append(deque[0])
-
+        # 窗口区间刚形成后，把队列首位值添加到队列中
         for i in range(1, len(nums) - k + 1):
             if nums[i - 1] == deque[0]:
                 deque.popleft()

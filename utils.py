@@ -104,3 +104,23 @@ class ListNode:
             nums.append(p.val)
             p = p.next
         return nums
+
+
+def list_to_linklist(nums: typing.List) -> ListNode:
+    if not nums:
+        return None
+    head = ListNode(nums[0])
+    p = head
+    for i in range(1, len(nums)):
+        p.next = ListNode(nums[i])
+        p = p.next
+    return head
+
+
+def linklist_to_list(head: ListNode) -> typing.List:
+    nums = []
+    p = head
+    while p:
+        nums.append(p.val)
+        p = p.next
+    return nums

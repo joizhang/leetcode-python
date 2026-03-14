@@ -1,4 +1,4 @@
-from utils import ListNode, list_to_linklist, linklist_to_list
+from utils import ListNode
 
 
 class Solution:
@@ -19,8 +19,12 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    linklist = list_to_linklist([1, 2, 3, 4, 5])
-    print(linklist_to_list(s.oddEvenList(linklist)))
+    linklist = ListNode()
+    linklist.from_list([1, 2, 3, 4, 5])
+    linklist = s.oddEvenList(linklist)
+    print(linklist.to_list())
 
-    linklist = list_to_linklist([2, 1, 3, 5, 6, 4, 7])
-    print(linklist_to_list(s.oddEvenList(linklist)))
+    linklist = ListNode()
+    linklist.from_list([2, 1, 3, 5, 6, 4, 7])
+    linklist = s.oddEvenList(linklist)
+    print(linklist.to_list())
